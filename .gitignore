@@ -1,0 +1,25 @@
+# Virtual environment
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Build artifacts
+*.*gg-info/
+build/
+dist/
+
+# Test caches
+.pytest_cache/
+.ruff_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Data
+data/*.csv
+
+# OS files
+.DS_Store
+Thumbs.db
