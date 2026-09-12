@@ -1,15 +1,56 @@
 # Quant Portfolio Lab
 
-A portfolio-research project built for a quantitative investment role. It downloads adjusted ETF prices, calculates risk and performance metrics, constructs constrained portfolios, and performs a monthly walk-forward backtest.
+A Python-based quantitative investment research platform for portfolio construction, risk analytics, systematic investing and machine learning. 
 
-## Methods
+## Key Features 
 
-- Equal weight benchmark
-- Long-only minimum-variance portfolio
-- Long-only maximum-Sharpe portfolio
-- Inverse-volatility allocation
-- Rolling out-of-sample backtest with configurable lookback and transaction costs
-- CAGR, annualized volatility, Sharpe ratio, Sortino ratio, maximum drawdown, historical VaR and CVaR
+- Portfolio Optimization 
+  - Minimum Variance 
+  - Maximum Sharpe Ratio 
+  - Inverse Volatility 
+
+- Risk Analytics 
+  - Volatility 
+  - Sharpe Ratio 
+  - Sortino Ratio 
+  - Maximum Drawdown 
+  - VaR 
+  - CVaR 
+  
+- Backtesting 
+  - Monthly Walk-Forward Testing 
+  - Transaction Cost Modelling 
+
+- Interactive Dashboard 
+  - Streamlit Visualization 
+  - Portfolio Allocation Monitoring 
+  - Performance Reporting
+
+## Machine Learning
+
+The repository includes a Random Forest example for market prediction.
+
+Example:
+
+```bash
+python examples/market_prediction.py
+
+### Random Forest Market Prediction
+
+This project includes a machine learning module that uses a Random Forest classifier to predict short-term ETF market direction.
+
+#### Features
+
+The model is trained using technical and risk-related factors:
+
+- 20-day momentum
+- 60-day momentum
+- 20-day rolling volatility
+- Price-to-200-day moving average ratio
+
+#### Target
+
+The classifier predicts whether the ETF price will be higher over the next 20 trading days. 
 
 ## Quick start
 
@@ -32,13 +73,26 @@ ruff check .
 ## Repository structure
 
 ```text
-app.py                         Streamlit user interface
-src/quant_portfolio_lab/
-  data.py                      Market-data download and validation
-  metrics.py                   Performance and downside-risk metrics
-  optimization.py              Portfolio optimizers
-  backtest.py                  Walk-forward backtest
-tests/                         Offline unit tests with synthetic data
+quant-portfolio-lab/
+├── app.py                         Streamlit dashboard
+├── README.md
+├── pyproject.toml
+├── .github/
+│   └── workflows/
+│       └── tests.yml              CI pipeline
+├── examples/
+│   └── market_prediction.py       Random Forest market prediction example
+├── src/
+│   └── quant_portfolio_lab/
+│       ├── __init__.py
+│       ├── data.py                Market-data download and preprocessing
+│       ├── metrics.py             Risk and performance metrics
+│       ├── optimization.py        Portfolio optimization
+│       ├── backtest.py            Walk-forward backtesting
+│       └── ml_model.py            Random Forest prediction model
+├── tests/
+│   └── test_core.py               Unit tests
+└── .gitignore
 ```
 
 ## Research design and limitations
@@ -58,3 +112,9 @@ tests/                         Offline unit tests with synthetic data
 3. Momentum and trend signals with purged validation
 4. Market-regime model evaluated strictly out of sample
 5. EUR base-currency returns and FX-hedged ETF comparison
+
+## Project Motivation
+
+This project was developed to demonstrate the application of quantitative analysis, portfolio optimization, machine learning and risk management techniques to systematic investing.
+
+The goal is to bridge expertise in quantitative risk modelling with practical asset management and investment decision-making.
